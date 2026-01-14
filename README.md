@@ -6,6 +6,10 @@ A modern, responsive website for a professional hair salon featuring AI-powered 
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Language](https://img.shields.io/badge/language-Bulgarian%20%2F%20English-orange)
 
+## 🌐 Demo Live
+
+👉 **[View Demo Here](https://niko5886.github.io/Hairdresser-Web-Site/)** ← Click to see the live website
+
 ## 🎨 Features
 
 ### Design & Typography
