@@ -1,0 +1,191 @@
+// AI Chat Assistant - Симулирана интелигентна система
+const aiResponses = {
+    greeting: [
+        "Здравей! 👋 Как мога да ти помогна днес?",
+        "Добре дошъл/дошла! 😊 Какво могу да направя за теб?"
+    ],
+    services: [
+        "Предлагаме разнообразни услуги: подстригване, оцветяване, маски и ламиниране. Интересува ли те някоя конкретна услуга?",
+        "Имаме пълен спектър от фризьорски услуги. Запитай за конкретна услуга и ще ти дам подробна информация!"
+    ],
+    booking: [
+        "Можеш да запазиш час чрез нашия форуляр или да позвониш на +359 88 234 5678. Каква услуга искаш?",
+        "Резервирай час лесно! Кажи ми кога ti e удобно и какво искаш да направиш."
+    ],
+    prices: [
+        "Подстригване: От 25 лв. | Оцветяване: От 45 лв. | Маски: От 35 лв. | Перманентна вълна: От 55 лв.",
+        "Имаме конкурентни цени и често предложения за верни клиенти!"
+    ],
+    location: [
+        "Намираме се на ул. Красотата 42, София. Лесен достъп и паркинг!",
+        "Адреса ни е ул. Красотата 42, София. До нас можеш да дойдеш лесно с всяко превозно средство."
+    ],
+    hours: [
+        "Отворени сме: Пн-Пт 09:00-19:00 | Сб 10:00-18:00. Неделя - почивка.",
+        "Работното ни време е Пн-Пт 09:00-19:00 и Сб 10:00-18:00."
+    ],
+    default: [
+        "Интересен въпрос! 🤔 Можеш ли да бъдеш по-конкретен?",
+        "Hmm, не съм сигурна как да отговоря. Позвони на +359 88 234 5678 за повече детайли!",
+        "Отличен въпрос! Най-добре е да потърсиш в разделите на сайта или да се свържеш с нас директно."
+    ]
+};
+
+// Функция за разпознаване на ключови думи
+function detectKeywords(message) {
+    const lowerMsg = message.toLowerCase();
+    
+    if (lowerMsg.includes("услуга") || lowerMsg.includes("какво") || lowerMsg.includes("правите")) {
+        return "services";
+    } else if (lowerMsg.includes("резервирай") || lowerMsg.includes("запази") || lowerMsg.includes("час") || lowerMsg.includes("време")) {
+        return "booking";
+    } else if (lowerMsg.includes("цена") || lowerMsg.includes("лв") || lowerMsg.includes("цени")) {
+        return "prices";
+    } else if (lowerMsg.includes("адрес") || lowerMsg.includes("където") || lowerMsg.includes("местонахождение")) {
+        return "location";
+    } else if (lowerMsg.includes("отворени") || lowerMsg.includes("работно") || lowerMsg.includes("време")) {
+        return "hours";
+    } else if (lowerMsg.includes("привет") || lowerMsg.includes("здравей") || lowerMsg.includes("hello")) {
+        return "greeting";
+    }
+    
+    return "default";
+}
+
+// Функция за вземане на отговор
+function getAIResponse(keyword) {
+    const responses = aiResponses[keyword];
+    return responses[Math.floor(Math.random() * responses.length)];
+}
+
+// DOM Elements
+const aiChatToggle = document.getElementById("aiChatToggle");
+const aiChatModal = document.getElementById("aiChatModal");
+const closeModal = document.querySelector(".close-modal");
+const chatMessages = document.getElementById("chatMessages");
+const chatInput = document.getElementById("chatInput");
+const sendChatBtn = document.getElementById("sendChatBtn");
+
+// Event Listeners
+aiChatToggle.addEventListener("click", () => {
+    aiChatModal.style.display = aiChatModal.style.display === "block" ? "none" : "block";
+    if (aiChatModal.style.display === "block") {
+        chatInput.focus();
+        if (chatMessages.children.length === 0) {
+            addAIMessage("Здравей! 👋 Добре дошъл/дошла в GLOSS салона. Как мога да ти помогна?");
+        }
+    }
+});
+
+closeModal.addEventListener("click", () => {
+    aiChatModal.style.display = "none";
+});
+
+sendChatBtn.addEventListener("click", sendMessage);
+chatInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+});
+
+// Функции за чат
+function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    addUserMessage(message);
+    chatInput.value = "";
+
+    // Симулираме отговор с малка закъснение
+    setTimeout(() => {
+        const keyword = detectKeywords(message);
+        const response = getAIResponse(keyword);
+        addAIMessage(response);
+    }, 600);
+}
+
+function addUserMessage(text) {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = "chat-message user";
+    messageDiv.innerHTML = `<div class="message-text">${escapeHtml(text)}</div>`;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function addAIMessage(text) {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = "chat-message ai";
+    messageDiv.innerHTML = `<div class="message-text">${escapeHtml(text)}</div>`;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Функция за защита от XSS атаки
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// Booking Button Handler
+document.querySelector(".booking-btn").addEventListener("click", () => {
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+});
+
+// Smooth scroll for navigation links
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+});
+
+// Animate elements on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Наблюдавай всички service cards
+document.querySelectorAll(".service-card, .gallery-item").forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s ease';
+    observer.observe(el);
+});
+
+// Contact Form Handler
+document.querySelector(".contact-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Благодаря! 😊 Ще се свържем с теб скоро!");
+    e.target.reset();
+});
+
+// Mobile menu toggle (if needed for smaller screens)
+const menuItems = document.querySelectorAll(".nav-menu a");
+menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+        // Close mobile menu if it exists
+        const navMenu = document.querySelector(".nav-menu");
+        if (navMenu.style.display === "flex") {
+            navMenu.style.display = "none";
+        }
+    });
+});
+
+console.log("✨ GLOSS Салон е готов! ✨");
