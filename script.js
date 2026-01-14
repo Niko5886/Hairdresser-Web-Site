@@ -58,6 +58,98 @@ function getAIResponse(keyword) {
     return responses[Math.floor(Math.random() * responses.length)];
 }
 
+// ===== COUNTER ANIMATION ФУНКЦИЯ =====
+function animateCounter(element, target, duration, label, isDecimal = false) {
+    if (!element) {
+        console.error('Element не намерен за анимация');
+        return;
+    }
+    
+    const start = 0;
+    const increment = target / (duration / 16); // 60fps = 16ms per frame
+    let current = start;
+    let animationId = null;
+
+    const updateCounter = () => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            if (isDecimal) {
+                element.textContent = target.toFixed(1) + label;
+            } else {
+                element.textContent = Math.floor(target) + label;
+            }
+            console.log('Анимация завършена:', target + label);
+            return;
+        }
+        if (isDecimal) {
+            element.textContent = current.toFixed(1) + label;
+        } else {
+            element.textContent = Math.floor(current) + label;
+        }
+        animationId = requestAnimationFrame(updateCounter);
+    };
+
+    animationId = requestAnimationFrame(updateCounter);
+}
+
+// Наблюдава статистиката при скролване
+function setupStatsObserver() {
+    console.log('Инициализира се Statistics Observer...');
+    
+    const statsElements = document.querySelectorAll('.stat');
+    console.log('Намерени stat елементи:', statsElements.length);
+    
+    if (statsElements.length === 0) {
+        console.error('Не са намерени stat елементи!');
+        return;
+    }
+    
+    const animatedStats = new Set();
+
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        console.log('Intersection Observer активиран, записи:', entries.length);
+        entries.forEach(entry => {
+            console.log('Entry:', entry.target, 'Видим:', entry.isIntersecting);
+            if (entry.isIntersecting) {
+                const statElement = entry.target;
+                const statId = statElement.getAttribute('data-stat-id');
+                
+                console.log('Статистика с ID:', statId, 'вече анимирана?', animatedStats.has(statId));
+                
+                // Проверяваме дали вече е анимирана
+                if (!animatedStats.has(statId)) {
+                    animatedStats.add(statId);
+                    
+                    const numberElement = statElement.querySelector('.stat-number');
+                    console.log('Number element намерен:', numberElement);
+                    
+                    const target = parseFloat(statElement.getAttribute('data-target'));
+                    const label = statElement.getAttribute('data-label') || '';
+                    const duration = parseInt(statElement.getAttribute('data-duration')) || 2000;
+                    const isDecimal = statElement.getAttribute('data-is-decimal') === 'true';
+                    
+                    console.log('Стартира анимация - Target:', target, 'Label:', label, 'Duration:', duration);
+                    animateCounter(numberElement, target, duration, label, isDecimal);
+                }
+            }
+        });
+    }, observerOptions);
+
+    statsElements.forEach((stat, index) => {
+        stat.setAttribute('data-stat-id', index);
+        console.log('Наблюдаване на stat:', index);
+        observer.observe(stat);
+    });
+    
+    console.log('Statistics Observer инициализиран успешно');
+}
+
 // DOM Elements
 const aiChatToggle = document.getElementById("aiChatToggle");
 const aiChatModal = document.getElementById("aiChatModal");
@@ -187,5 +279,48 @@ menuItems.forEach(item => {
         }
     });
 });
+
+// Инициализира статистиката при зареждане
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded изпълнен - инициализира се Observer');
+    
+    // Първо опит с Intersection Observer
+    try {
+        setupStatsObserver();
+    } catch (e) {
+        console.error('Грешка в Observer:', e);
+    }
+    
+    // Fallback - стартира анимацията след 100ms от скрол или веднага
+    window.addEventListener('scroll', triggerStatsAnimation, { once: true });
+    
+    // Или веднага ако вече са видими
+    setTimeout(triggerStatsAnimation, 500);
+});
+
+let statsAnimationTriggered = false;
+
+function triggerStatsAnimation() {
+    if (statsAnimationTriggered) return;
+    statsAnimationTriggered = true;
+    
+    console.log('Trigger Stats Animation активирана');
+    
+    const statsElements = document.querySelectorAll('.stat');
+    console.log('Анимиране на', statsElements.length, 'елементи');
+    
+    statsElements.forEach((stat, index) => {
+        const numberElement = stat.querySelector('.stat-number');
+        if (numberElement) {
+            const target = parseFloat(stat.getAttribute('data-target'));
+            const label = stat.getAttribute('data-label') || '';
+            const duration = parseInt(stat.getAttribute('data-duration')) || 2000;
+            const isDecimal = stat.getAttribute('data-is-decimal') === 'true';
+            
+            console.log('Анимира елемент', index, '- target:', target, 'label:', label);
+            animateCounter(numberElement, target, duration, label, isDecimal);
+        }
+    });
+}
 
 console.log("✨ GLOSS Салон е готов! ✨");

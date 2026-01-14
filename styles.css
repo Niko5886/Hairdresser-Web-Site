@@ -218,9 +218,18 @@ body {
     align-items: center;
 }
 
-.placeholder-image {
-    font-size: 8rem;
-    animation: float 3s ease-in-out infinite;
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(230, 57, 70, 0.2);
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+.hero-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(230, 57, 70, 0.3);
 }
 
 @keyframes float {
@@ -359,9 +368,22 @@ section {
     transition: all 0.3s ease;
 }
 
+.gallery-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    display: block;
+}
+
 .gallery-item:hover .gallery-placeholder {
     transform: scale(1.1);
     filter: brightness(1.2);
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
 }
 
 .gallery-item h4 {
@@ -421,6 +443,12 @@ section {
     text-align: center;
     box-shadow: 0 5px 15px rgba(230, 57, 70, 0.1);
     border-top: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.2);
 }
 
 .stat h4 {
@@ -428,6 +456,18 @@ section {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+}
+
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .stat p {
