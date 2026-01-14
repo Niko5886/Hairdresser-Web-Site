@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакт - GLOSS Фризьорски Салон</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER И НАВИГАЦИЯ -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>✨ GLOSS</h1>
+                    <p>Фризьорски Салон</p>
+                </div>
+                
+                <nav class="navigation">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="about.html">За Нас</a></li>
+                        <li><a href="contact.html">Контакт</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="ai-chat-toggle" id="aiChatToggle">💬 AI Асистент</button>
+                    <button class="booking-btn">Резервация</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ГЛАВНА СЕКЦИЯ -->
+    <main>
+        <!-- PAGE TITLE -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Свържи се с Нас</h1>
+                <p>Ние чакаме вашето съобщение</p>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <span class="icon">📍</span>
+                            <div>
+                                <h4>Адрес</h4>
+                                <p>ул. Красотата 42<br>1000 София<br>България</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">📞</span>
+                            <div>
+                                <h4>Телефон</h4>
+                                <p><a href="tel:+359882345678">+359 88 234 5678</a></p>
+                                <p><a href="tel:+359282345678">+359 2 8234 5678</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">📧</span>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@gloss-salon.bg">info@gloss-salon.bg</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">🕐</span>
+                            <div>
+                                <h4>Работно Време</h4>
+                                <p>Пн-Пт: 09:00 - 19:00<br>
+                                Сб: 10:00 - 18:00<br>
+                                Неделя: Почивка</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <h3>Напишете ни</h3>
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Вашето Име" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Ваш Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Ваш Телефон (опционално)">
+                        </div>
+                        <div class="form-group">
+                            <select id="subject" required>
+                                <option value="">Избери тема</option>
+                                <option value="booking">Резервация</option>
+                                <option value="consultation">Консултация</option>
+                                <option value="question">Въпрос</option>
+                                <option value="other">Друго</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Ваше Съобщение" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">Изпрати Съобщение</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAP SECTION -->
+        <section class="map-section">
+            <div class="container">
+                <h2 class="section-title">Намерете Нас</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.3456!2d23.317!3d42.698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a850000000001%3A0x0!2sSOFIA!5e0!3m2!1sbg!2sbg!4v0000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" class="scroll-to-top" title="Върни се в началото">
+        ⬆️
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GLOSS</h4>
+                    <p>Вашият фризьорски салон с душа и стил</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Бързи Връзки</h4>
+                    <ul>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="about.html">За Нас</a></li>
+                        <li><a href="contact.html">Контакт</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Следи Нас</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GLOSS Фризьорски Салон. Всички права запазени.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI CHAT MODAL -->
+    <div id="aiChatModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🤖 AI Асистент</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Напишете вашия въпрос...">
+                <button id="sendChatBtn">Изпрати</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Благодаря! 😊 Ще се свържем с теб скоро!");
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

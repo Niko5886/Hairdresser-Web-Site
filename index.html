@@ -19,11 +19,11 @@
                 
                 <nav class="navigation">
                     <ul class="nav-menu">
-                        <li><a href="#home">Начало</a></li>
-                        <li><a href="#services">Услуги</a></li>
-                        <li><a href="#gallery">Галерия</a></li>
-                        <li><a href="#about">За Нас</a></li>
-                        <li><a href="#contact">Контакт</a></li>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="about.html">За Нас</a></li>
+                        <li><a href="contact.html">Контакт</a></li>
                     </ul>
                 </nav>
 
@@ -44,8 +44,8 @@
                     <h2 class="hero-title">Трансформирай се в стил</h2>
                     <p class="hero-subtitle">Експертизa, иновация и красота в едно място</p>
                     <div class="hero-buttons">
-                        <button class="btn btn-primary">Запази Час</button>
-                        <button class="btn btn-secondary">Прегледай Услуги</button>
+                        <a href="services.html" class="btn btn-primary">Запази Час</a>
+                        <a href="services.html" class="btn btn-secondary">Прегледай Услуги</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -55,7 +55,7 @@
         </section>
 
         <!-- УСЛУГИ -->
-        <section id="services" class="services">
+        <section id="services" class="services-preview">
             <div class="container">
                 <h2 class="section-title">Наши Услуги</h2>
                 <div class="services-grid">
@@ -67,31 +67,34 @@
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🎨</div>
-                        <h3>Оцветяване</h3>
-                        <p>Полнозърно боядисване, балаяж, омбре и специални ефекти</p>
+                        <h3>Боядисване</h3>
+                        <p>Боядисване, балаяж, омбре и специални ефекти</p>
                         <span class="price">От 45 лв.</span>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">💆</div>
-                        <h3>Маски и Ламиниране</h3>
-                        <p>Възстановяващи маски, кератиново ламиниране и SPA процедури</p>
+                        <h3>Маски и Подхранващи Процедури</h3>
+                        <p>Възстановяващи маски, кератиново третиране и SPA процедури</p>
                         <span class="price">От 35 лв.</span>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">✨</div>
-                        <h3>Перманентна Вълна</h3>
+                        <h3>Перманентна Процедури</h3>
                         <p>Химична перманентна вълна със щадящи технологии</p>
                         <span class="price">От 55 лв.</span>
                     </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="services.html" class="btn btn-primary">Виж Всички Услуги</a>
                 </div>
             </div>
         </section>
 
         <!-- ГАЛЕРИЯ -->
-        <section id="gallery" class="gallery">
+        <section id="gallery" class="gallery-preview">
             <div class="container">
                 <h2 class="section-title">Галерия на Стилове</h2>
-                <div class="gallery-grid">
+                <div class="gallery-grid-preview">
                     <div class="gallery-item">
                         <img src="Img/professional-Hairstyle-1.jpeg" alt="Класически Стил" class="gallery-img">
                         <h4>Класически Стил</h4>
@@ -104,66 +107,30 @@
                         <img src="Img/hair-spa.jpeg" alt="Крафтни Цветове" class="gallery-img">
                         <h4>Крафтни Цветове</h4>
                     </div>
-                    <div class="gallery-item">
-                        <img src="Img/man-hairstyling.jpeg" alt="Звездни Ефекти" class="gallery-img">
-                        <h4>Звездни Ефекти</h4>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="Img/interior1.jpeg" alt="Мажестетична Коса" class="gallery-img">
-                        <h4>Мажестетична Коса</h4>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="Img/the team.jpeg" alt="Експериментални" class="gallery-img">
-                        <h4>Експериментални</h4>
-                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="gallery.html" class="btn btn-primary">Виж Пълната Галерия</a>
                 </div>
             </div>
         </section>
 
         <!-- ЗА НАС -->
-        <section id="about" class="about">
+        <section id="about" class="cta-section">
             <div class="container">
-                <h2 class="section-title">За Нас</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Добре дошли в GLOSS</h3>
-                        <p>Ние сме фризьорски салон със 15 години опит. Нашият екип от творци на стила работят със страст и професионализъм.</p>
-                        <p>Използваме най-новите технологии, професионални продукти и персонализиран подход към всеки клиент.</p>
-                        <ul class="features-list">
-                            <li>✓ Сертифицирани специалисти</li>
-                            <li>✓ Премиум продукти</li>
-                            <li>✓ AI за персонализация</li>
-                            <li>✓ Комфортна среда</li>
-                        </ul>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat" data-target="500" data-label="+" data-duration="2000">
-                            <h4 class="stat-number">0+</h4>
-                            <p>Доволни Клиенти</p>
-                        </div>
-                        <div class="stat" data-target="15" data-label=" Г." data-duration="2000">
-                            <h4 class="stat-number">0</h4>
-                            <p>Опит</p>
-                        </div>
-                        <div class="stat" data-target="8" data-label="" data-duration="2000">
-                            <h4 class="stat-number">0</h4>
-                            <p>Стилисти</p>
-                        </div>
-                        <div class="stat" data-target="4.9" data-label="⭐" data-duration="2000" data-is-decimal="true">
-                            <h4 class="stat-number">0</h4>
-                            <p>Рейтинг</p>
-                        </div>
-                    </div>
+                <div class="cta-content">
+                    <h2>Готов/Готова за Преобразуване?</h2>
+                    <p>Нашите експертни стилисти са тук да подобрят вашата визия в</p>
+                    <a href="about.html" class="btn btn-primary btn-large">Виж Повече За Нас</a>
                 </div>
             </div>
         </section>
 
         <!-- КОНТАКТ -->
-        <section id="contact" class="contact">
+        <section id="contact" class="contact-preview">
             <div class="container">
                 <h2 class="section-title">Свържи се с Нас</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
+                <div class="contact-preview-content">
+                    <div class="contact-info-preview">
                         <div class="info-item">
                             <span class="icon">📍</span>
                             <div>
@@ -186,16 +153,18 @@
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Вашето Име" required>
-                        <input type="email" placeholder="Email" required>
-                        <textarea placeholder="Ваше Съобщение" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary">Изпрати</button>
-                    </form>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="contact.html" class="btn btn-primary">Форма за Контакт</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" class="scroll-to-top" title="Върни се в началото">
+        ↑
+    </button>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -208,10 +177,11 @@
                 <div class="footer-section">
                     <h4>Бързи Връзки</h4>
                     <ul>
-                        <li><a href="#home">Начало</a></li>
-                        <li><a href="#services">Услуги</a></li>
-                        <li><a href="#gallery">Галерия</a></li>
-                        <li><a href="#contact">Контакт</a></li>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="about.html">За Нас</a></li>
+                        <li><a href="contact.html">Контакт</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

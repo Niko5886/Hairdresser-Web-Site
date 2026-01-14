@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерия - GLOSS Фризьорски Салон</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER И НАВИГАЦИЯ -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>✨ GLOSS</h1>
+                    <p>Фризьорски Салон</p>
+                </div>
+                
+                <nav class="navigation">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="about.html">За Нас</a></li>
+                        <li><a href="contact.html">Контакт</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="ai-chat-toggle" id="aiChatToggle">💬 AI Асистент</button>
+                    <button class="booking-btn">Резервация</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ГЛАВНА СЕКЦИЯ -->
+    <main>
+        <!-- PAGE TITLE -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Галерия на Стилове</h1>
+                <p>Преглед на нашите най-красиви реализации</p>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="gallery">
+            <div class="container">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="Img/professional-Hairstyle-1.jpeg" alt="Класически Стил" class="gallery-img">
+                        <h4>Класически Стил</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/women´s.jpeg" alt="Модерни Вълни" class="gallery-img">
+                        <h4>Модерни Вълни</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/hair-spa.jpeg" alt="Крафтни Цветове" class="gallery-img">
+                        <h4>Крафтни Цветове</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/man-hairstyling.jpeg" alt="Звездни Ефекти" class="gallery-img">
+                        <h4>Звездни Ефекти</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/interior1.jpeg" alt="Мажестетична Коса" class="gallery-img">
+                        <h4>Мажестетична Коса</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/the team.jpeg" alt="Експериментални" class="gallery-img">
+                        <h4>Експериментални</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Вдъхновил те се?</h2>
+                    <p>Запази консултация със нашите стилисти за твоя идеална фризура</p>
+                    <a href="contact.html" class="btn btn-primary btn-large">Свържи се с Нас</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" class="scroll-to-top" title="Върни се в началото">
+        ⬆️
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GLOSS</h4>
+                    <p>Вашият фризьорски салон с душа и стил</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Бързи Връзки</h4>
+                    <ul>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="about.html">За Нас</a></li>
+                        <li><a href="contact.html">Контакт</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Следи Нас</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GLOSS Фризьорски Салон. Всички права запазени.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI CHAT MODAL -->
+    <div id="aiChatModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🤖 AI Асистент</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Напишете вашия въпрос...">
+                <button id="sendChatBtn">Изпрати</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

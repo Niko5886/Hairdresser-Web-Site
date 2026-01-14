@@ -223,9 +223,12 @@ function escapeHtml(text) {
 }
 
 // Booking Button Handler
-document.querySelector(".booking-btn").addEventListener("click", () => {
-    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-});
+const bookingBtn = document.querySelector(".booking-btn");
+if (bookingBtn) {
+    bookingBtn.addEventListener("click", () => {
+        window.location.href = "contact.html";
+    });
+}
 
 // Smooth scroll for navigation links
 document.querySelectorAll("a[href^='#']").forEach(anchor => {
@@ -296,6 +299,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Или веднага ако вече са видими
     setTimeout(triggerStatsAnimation, 500);
+    
+    // Инициализира Scroll to Top функционалност
+    setupScrollToTop();
 });
 
 let statsAnimationTriggered = false;
@@ -320,6 +326,37 @@ function triggerStatsAnimation() {
             console.log('Анимира елемент', index, '- target:', target, 'label:', label);
             animateCounter(numberElement, target, duration, label, isDecimal);
         }
+    });
+}
+
+// ===== SCROLL TO TOP ФУНКЦИЯ =====
+function setupScrollToTop() {
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    if (!scrollToTopBtn) {
+        console.warn('Scroll to Top button не намерен');
+        return;
+    }
+
+    // Показва/скрива бутона при скролване
+    const toggleScrollButton = () => {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 150) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    };
+
+    window.addEventListener('scroll', toggleScrollButton);
+    toggleScrollButton(); // Първоначална проверка след зареждане
+
+    // Scroll към вершината при клик
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 }
 
