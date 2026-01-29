@@ -360,36 +360,47 @@ function setupScrollToTop() {
     });
 }
 
-// HAMBURGER MENU FUNCTIONALITY - ИЗВЪН setupScrollToTop
-const hamburgerMenu = document.getElementById('hamburgerMenu');
-const mobileNav = document.getElementById('mobileNav');
-const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+// HAMBURGER MENU FUNCTIONALITY - инициализация след зареждане
+function initHamburgerMenu() {
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
 
-if (hamburgerMenu && mobileNav) {
-    // Toggle hamburger menu
-    hamburgerMenu.addEventListener('click', (e) => {
+    if (!hamburgerMenu || !mobileNav) {
+        console.warn('Hamburger menu елементи не намерени.');
+        return;
+    }
+
+    const closeMenu = () => {
+        hamburgerMenu.classList.remove('active');
+        mobileNav.classList.remove('active');
+    };
+
+    const toggleMenu = (e) => {
         e.stopPropagation();
         hamburgerMenu.classList.toggle('active');
         mobileNav.classList.toggle('active');
-    });
+    };
 
-    // Close mobile menu when a link is clicked
+    hamburgerMenu.addEventListener('click', toggleMenu);
+
     mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburgerMenu.classList.remove('active');
-            mobileNav.classList.remove('active');
-        });
+        link.addEventListener('click', closeMenu);
     });
 
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.header-content') && !e.target.closest('.mobile-nav')) {
-            hamburgerMenu.classList.remove('active');
-            mobileNav.classList.remove('active');
+            closeMenu();
         }
     });
-} else {
-    console.error('Hamburger menu елементи не намерени!');
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+            closeMenu();
+        }
+    });
 }
+
+document.addEventListener('DOMContentLoaded', initHamburgerMenu);
 
 console.log("✨ GLOSS Салон е готов! ✨");
