@@ -373,36 +373,36 @@ function initHamburgerMenu() {
 
     console.log('Hamburger menu инициализирано успешно!');
 
-    const closeMenu = () => {
-        hamburgerMenu.classList.remove('active');
-        mobileNav.classList.remove('active');
-    };
-
-    const toggleMenu = (e) => {
+    // Event listener за хамбургер бутона
+    hamburgerMenu.onclick = function(e) {
         e.preventDefault();
         e.stopPropagation();
         console.log('Hamburger clicked!');
-        hamburgerMenu.classList.toggle('active');
+        this.classList.toggle('active');
         mobileNav.classList.toggle('active');
     };
 
-    // Премахни стари listeners ако има
-    hamburgerMenu.removeEventListener('click', toggleMenu);
-    hamburgerMenu.addEventListener('click', toggleMenu);
-
+    // Затваряне при клик на линк
     mobileNavLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+        link.onclick = function() {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+        };
     });
 
+    // Затваряне при клик извън менюто
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.hamburger-menu') && !e.target.closest('.mobile-nav')) {
-            closeMenu();
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
         }
     });
 
+    // Затваряне при resize над 768px
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) {
-            closeMenu();
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
         }
     });
 }
