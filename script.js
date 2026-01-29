@@ -371,17 +371,23 @@ function initHamburgerMenu() {
         return;
     }
 
+    console.log('Hamburger menu инициализирано успешно!');
+
     const closeMenu = () => {
         hamburgerMenu.classList.remove('active');
         mobileNav.classList.remove('active');
     };
 
     const toggleMenu = (e) => {
+        e.preventDefault();
         e.stopPropagation();
+        console.log('Hamburger clicked!');
         hamburgerMenu.classList.toggle('active');
         mobileNav.classList.toggle('active');
     };
 
+    // Премахни стари listeners ако има
+    hamburgerMenu.removeEventListener('click', toggleMenu);
     hamburgerMenu.addEventListener('click', toggleMenu);
 
     mobileNavLinks.forEach(link => {
@@ -389,18 +395,23 @@ function initHamburgerMenu() {
     });
 
     document.addEventListener('click', (e) => {
-        if (!e.target.closest('.header-content') && !e.target.closest('.mobile-nav')) {
+        if (!e.target.closest('.hamburger-menu') && !e.target.closest('.mobile-nav')) {
             closeMenu();
         }
     });
 
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 1024) {
+        if (window.innerWidth > 768) {
             closeMenu();
         }
     });
 }
 
-document.addEventListener('DOMContentLoaded', initHamburgerMenu);
+// Инициализирай веднага и на DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHamburgerMenu);
+} else {
+    initHamburgerMenu();
+}
 
 console.log("✨ GLOSS Салон е готов! ✨");

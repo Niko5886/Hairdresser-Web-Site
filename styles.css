@@ -188,6 +188,17 @@ body {
     transform: translateY(-1px);
 }
 
+.ai-chat-toggle,
+.booking-btn {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
 .ai-chat-toggle {
     background-color: transparent;
     color: white;
