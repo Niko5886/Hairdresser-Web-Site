@@ -358,6 +358,33 @@ function setupScrollToTop() {
             behavior: 'smooth'
         });
     });
+
+    // HAMBURGER MENU FUNCTIONALITY
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+
+    // Toggle hamburger menu
+    hamburgerMenu.addEventListener('click', () => {
+        hamburgerMenu.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.header-content') && !e.target.closest('.mobile-nav')) {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+        }
+    });
 }
 
 console.log("✨ GLOSS Салон е готов! ✨");

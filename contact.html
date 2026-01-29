@@ -31,7 +31,24 @@
                     <button class="ai-chat-toggle" id="aiChatToggle">💬 AI Асистент</button>
                     <button class="booking-btn">Резервация</button>
                 </div>
+
+                <button class="hamburger-menu" id="hamburgerMenu" title="Отвори меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
+
+            <!-- MOBILE NAVIGATION -->
+            <nav class="mobile-nav" id="mobileNav">
+                <ul class="mobile-nav-menu">
+                    <li><a href="index.html">Начало</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="gallery.html">Галерия</a></li>
+                    <li><a href="about.html">За Нас</a></li>
+                    <li><a href="contact.html">Контакт</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -95,7 +112,7 @@
                             <input type="tel" id="phone" placeholder="Ваш Телефон (опционално)">
                         </div>
                         <div class="form-group">
-                            <select id="subject" required>
+                            <select id="subject" required title="Избери тема">
                                 <option value="">Избери тема</option>
                                 <option value="booking">Резервация</option>
                                 <option value="consultation">Консултация</option>
@@ -117,7 +134,7 @@
             <div class="container">
                 <h2 class="section-title">Намерете Нас</h2>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.3456!2d23.317!3d42.698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a850000000001%3A0x0!2sSOFIA!5e0!3m2!1sbg!2sbg!4v0000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.3456!2d23.317!3d42.698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a850000000001%3A0x0!2sSOFIA!5e0!3m2!1sbg!2sbg!4v0000" width="100%" height="450" class="map-iframe" title="Google Maps локация на GLOSS Фризьорски Салон"></iframe>
                 </div>
             </div>
         </section>
