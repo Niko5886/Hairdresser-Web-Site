@@ -374,32 +374,44 @@ function initHamburgerMenu() {
     console.log('Hamburger menu инициализирано успешно!');
 
     // Event listener за хамбургер бутона
-    hamburgerMenu.onclick = function(e) {
+    hamburgerMenu.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         console.log('Hamburger clicked!');
-        this.classList.toggle('active');
+        hamburgerMenu.classList.toggle('active');
         mobileNav.classList.toggle('active');
-    };
+    });
+
+    // Touch support за мобилни устройства
+    hamburgerMenu.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Hamburger touched!');
+        hamburgerMenu.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+    });
 
     // Затваряне при клик на линк
     mobileNavLinks.forEach(link => {
-        link.onclick = function() {
+        link.addEventListener('click', function() {
             hamburgerMenu.classList.remove('active');
             mobileNav.classList.remove('active');
-        };
+        });
     });
 
     // Затваряне при клик извън менюто
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.hamburger-menu') && !e.target.closest('.mobile-nav')) {
-            hamburgerMenu.classList.remove('active');
-            mobileNav.classList.remove('active');
+    document.addEventListener('click', function(e) {
+        // Само ако менюто е отворено И кликът не е върху hamburger или mobile-nav
+        if (mobileNav.classList.contains('active')) {
+            if (!hamburgerMenu.contains(e.target) && !mobileNav.contains(e.target)) {
+                hamburgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
         }
     });
 
     // Затваряне при resize над 768px
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             hamburgerMenu.classList.remove('active');
             mobileNav.classList.remove('active');
