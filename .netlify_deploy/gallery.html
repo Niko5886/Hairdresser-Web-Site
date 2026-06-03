@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерия — GLOSS Фризьорски Салон</title>
+    <meta name="description" content="Галерия с прически и реализации на салон GLOSS — класически стилове, модерни вълни, оцветяване и мъжки прически.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER И НАВИГАЦИЯ -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>
+                        <svg class="svg-ico svg-ico--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.4a3 3 0 0 0 1.9 1.9L21 12l-5.3 1.7a3 3 0 0 0-1.9 1.9L12 21l-1.8-5.4a3 3 0 0 0-1.9-1.9L3 12l5.3-1.7a3 3 0 0 0 1.9-1.9z"/></svg>
+                        GLOSS
+                    </h1>
+                    <p>Фризьорски Салон</p>
+                </div>
+
+                <nav class="navigation" aria-label="Основна навигация">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="gallery.html" aria-current="page">Галерия</a></li>
+                        <li><a href="about.html">За Нас</a></li>
+                        <li><a href="contact.html">Контакт</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button type="button" class="ai-chat-toggle" id="aiChatToggle" aria-label="Отвори AI асистента">
+                        <svg class="svg-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>
+                        AI Асистент
+                    </button>
+                    <button type="button" class="booking-btn">Резервация</button>
+                </div>
+
+                <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Меню" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <nav class="mobile-menu" id="mobileMenu" aria-label="Мобилна навигация">
+                <ul class="mobile-menu-list">
+                    <li><a href="index.html">Начало</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="gallery.html" aria-current="page">Галерия</a></li>
+                    <li><a href="about.html">За Нас</a></li>
+                    <li><a href="contact.html">Контакт</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ГЛАВНА СЕКЦИЯ -->
+    <main>
+        <!-- PAGE TITLE -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Галерия на Стилове</h1>
+                <p>Преглед на нашите най-красиви реализации</p>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="gallery">
+            <div class="container">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="Img/professional-Hairstyle-1.jpeg" alt="Класическа елегантна прическа" class="gallery-img" loading="lazy">
+                        <h4>Класически Стил</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/women´s.jpeg" alt="Модерни вълни на дамска коса" class="gallery-img" loading="lazy">
+                        <h4>Модерни Вълни</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/hair-spa.jpeg" alt="Изящно боядисана коса" class="gallery-img" loading="lazy">
+                        <h4>Изящни Цветове</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/man-hairstyling.jpeg" alt="Мъжко стилизиране на коса" class="gallery-img" loading="lazy">
+                        <h4>Мъжки Стил</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/interior1.jpeg" alt="Интериор на салон GLOSS" class="gallery-img" loading="lazy">
+                        <h4>Нашият Салон</h4>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Img/the team.jpeg" alt="Екипът на GLOSS" class="gallery-img" loading="lazy">
+                        <h4>Нашият Екип</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Вдъхнови ли те?</h2>
+                    <p>Запази консултация с нашите стилисти за твоята идеална прическа.</p>
+                    <a href="contact.html" class="btn btn-primary btn-large">Свържи се с Нас</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button type="button" id="scrollToTopBtn" class="scroll-to-top" aria-label="Върни се в началото" title="Върни се в началото">
+        <svg class="svg-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GLOSS</h4>
+                    <p>Вашият фризьорски салон с душа и стил.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Бързи Връзки</h4>
+                    <ul>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="about.html">За Нас</a></li>
+                        <li><a href="contact.html">Контакт</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Следи Нас</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg class="svg-ico svg-ico--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg class="svg-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg class="svg-ico svg-ico--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.3 2.1 1.5 3.6 3.5 3.9v2.4c-1.3.1-2.5-.3-3.6-1v5.4a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.6a3.1 3.1 0 1 0 2.2 3V3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GLOSS Фризьорски Салон | Всички права запазени | POWERED by Nikolay Stoyanov</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI CHAT MODAL -->
+    <div id="aiChatModal" class="modal" role="dialog" aria-label="AI Асистент" aria-modal="false">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    <svg class="svg-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1.4" fill="currentColor" stroke="none"/><path d="M9 13h.01M15 13h.01"/></svg>
+                    AI Асистент
+                </h3>
+                <button type="button" class="close-modal" aria-label="Затвори чата">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Напишете вашия въпрос..." aria-label="Съобщение до AI асистента">
+                <button type="button" id="sendChatBtn" aria-label="Изпрати съобщение">
+                    <svg class="svg-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
