@@ -29,6 +29,24 @@ body {
     line-height: 1.6;
     color: var(--dark-color);
     background-color: var(--light-color);
+    cursor: default;
+}
+
+/* Без текстов курсор/маркиране върху съдържанието —
+   запазено само за полетата във формите и чата */
+*:not(input):not(textarea):not(select) {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input,
+textarea,
+select {
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor: text;
 }
 
 .container {
@@ -283,6 +301,7 @@ body {
 }
 
 .btn {
+    display: inline-block;
     padding: 1rem 2rem;
     border: none;
     border-radius: 50px;
@@ -292,6 +311,12 @@ body {
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus {
+    text-decoration: none;
 }
 
 .btn-primary {
