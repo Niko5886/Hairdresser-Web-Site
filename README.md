@@ -8,7 +8,7 @@ A modern, responsive website for a professional hair salon featuring AI-powered 
 
 ## 🌐 Demo Live
 
-👉 **[View Demo Here](https://niko5886.github.io/Hairdresser-Web-Site/)** ← Click to see the live website
+👉 **[View Demo Here](https://hairdresser-web-site.vercel.app/)** ← Click to see the live website
 
 ## 🎨 Features
 
